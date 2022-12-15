@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                    sh 'apt-get install python3'
+                    sh 'apt-get install python3.8 -y'
                 }
             }
             stage('Test') {
