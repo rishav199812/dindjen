@@ -1,11 +1,9 @@
 pipeline {
-    agent  {
-        label 'docker' { image 'python:3-alpine' }
-    }
+    agent  { label 'docker' }
     stages {
         stage('Build') {
             steps {
-                    sh 'py'
+                    sh 'apt-get install python3'
                 }
             }
             stage('Test') {
