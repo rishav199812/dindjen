@@ -18,7 +18,7 @@ class DataMappingTest(unittest.TestCase):
 
     def test_data_mapping_with_only_failing_item(self):
 
-        self.assertFalse
+        self.assertFalse('True')
 
 
 
