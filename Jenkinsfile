@@ -6,7 +6,7 @@ pipeline {
                     sh 'apt-get install python3 -y'
                     sh 'apt-get install python3-pip -y'
                     sh 'pip3 install -r requirements.txt'
-                    sh 'pip3 show unittest'
+                    //sh 'pip3 show unittest'
                     sh 'pip3 freeze'
                 }
             }
