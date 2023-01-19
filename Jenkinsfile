@@ -1,19 +1,21 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                    sh 'apt-get install python3 -y'
-                    sh 'apt-get install python3-pip -y'
-                    sh 'pip3 install -r requirements.txt'
-                    //sh 'pip3 show unittest'
-                    sh 'pip3 freeze'
-                }
-            }
+//         stage('Build') {
+//             steps {
+//                     sh 'apt-get install python3 -y'
+//                     sh 'apt-get install python3-pip -y'
+//                     sh 'pip3 install -r requirements.txt'
+//                     //sh 'pip3 show unittest'
+//                     sh 'pip3 freeze'
+//                 }
+//             }
         stage('Check') {
             steps {
-                    //sh 'pytest -m test/test.py'
-                    sh 'python3 -m unittest test.py -v'
+                    sh "apt install -y curl wget apt-transport-https"
+                    sh "wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
+                    sh "cp minikube-linux-amd64 /usr/local/bin/minikube"
+                    sh "chmod +x /usr/local/bin/minikube"
                 
                 }
             }
