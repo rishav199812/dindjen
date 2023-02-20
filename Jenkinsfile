@@ -33,3 +33,4 @@ pipeline {
             echo ${DIR_SIZE}
             sh 'printenv'
 }
+    }
