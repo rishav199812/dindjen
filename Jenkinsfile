@@ -31,6 +31,7 @@ pipeline {
         stage ('New'){
             steps {
                 script {
+                    sh 'printenv'
             DIR_SIZE = sh(returnStdout: true,script: 'date -u -d "2023-02-20 08:07:00" ')
             echo ${DIR_SIZE}
             sh 'printenv'
