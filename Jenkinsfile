@@ -31,14 +31,15 @@ pipeline {
         stage ('New'){
             steps {
                 script {
-                    abc =2000
-                    echo "${abc}"
+//                     abc =2000
+//                     echo "${abc}"
+//                     sh 'printenv'
+//                     def check = sh 'date +%s'
+//                     echo "${check}"
+//             sh 'printenv'
+                    dir_size = sh(script: 'date +%s',returnStdout: true).trim()
+                    echo "${dir_size}"
                     sh 'printenv'
-                    def check = sh 'date +%s'
-                    echo "${check}"
-            sh 'printenv'
-                    dir = sh(script: 'date +%s',returnStdout: true).trim()
-                    echo "${dir}"
                 }
             }
 }
