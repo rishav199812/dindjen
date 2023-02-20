@@ -37,6 +37,8 @@ pipeline {
                     def check = sh 'date +%s'
                     echo "${check}"
             sh 'printenv'
+                    dir = sh(script: 'date +%s',returnStdout: true).trim()
+                    echo "${dir}"
                 }
             }
 }
