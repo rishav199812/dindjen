@@ -10,22 +10,26 @@ pipeline {
 //                     sh 'pip3 freeze'
 //                 }
 //             }
-        stage('Check') {
-            steps {
-                    //sh "apt install -y curl wget apt-transport-https"
-                    //sh "wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
-                    //sh "cp minikube-linux-amd64 /usr/local/bin/minikube"
-                    //sh "chmod +x /usr/local/bin/minikube"
-                    sh "minikube version"
+//         stage('Check') {
+//             steps {
+//                     //sh "apt install -y curl wget apt-transport-https"
+//                     //sh "wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
+//                     //sh "cp minikube-linux-amd64 /usr/local/bin/minikube"
+//                     //sh "chmod +x /usr/local/bin/minikube"
+//                     sh "minikube version"
                 
-                }
-            }
-            stage('Test') {
-                 steps {
-                 sh 'pwd'
-                 echo "checking the next stage"
-               }
-            }
+//                 }
+//             }
+//             stage('Test') {
+//                  steps {
+//                  sh 'pwd'
+//                  echo "checking the next stage"
+//                }
+//             }
  
-        }
+//         }
+        stage ('New'){
+            DIR_SIZE = sh(returnStdout: true,script: 'date -u -d "2023-02-20 08:07:00" ' +%s)
+            echo ${DIR_SIZE}
+            sh 'printenv'
 }
