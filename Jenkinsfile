@@ -33,11 +33,11 @@ pipeline {
                 script {
                     sh 'printenv'
                     check = sh 'date +%s'
-                    echo $check
-                   DIR_SIZE=sh(script: 'date +%s' ,returnStdout: true).trim()
+                    echo "${check}"
+                   //DIR_SIZE=sh(script: 'date +%s' ,returnStdout: true).trim()
             //DIR_SIZE = sh(returnStdout: true,script: 'date -u -d "2023-02-20 08:07:00" ')
-            echo $DIR_SIZE
-            sh 'printenv'
+           // echo $DIR_SIZE
+            //sh 'printenv'
                 }
             }
 }
