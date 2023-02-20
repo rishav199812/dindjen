@@ -32,8 +32,8 @@ pipeline {
             steps {
                 script {
                     sh 'printenv'
-                    sh 'date +%s%N'
-            DIR_SIZE = sh(returnStdout: true,script: 'date -u -d "2023-02-20 08:07:00" ')
+                   DIR_SIZE=sh(returnStdout: true,script: 'date +%s')
+            //DIR_SIZE = sh(returnStdout: true,script: 'date -u -d "2023-02-20 08:07:00" ')
             echo ${DIR_SIZE}
             sh 'printenv'
                 }
