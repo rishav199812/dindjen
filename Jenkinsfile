@@ -31,6 +31,8 @@ pipeline {
         stage ('New'){
             steps {
                 script {
+                    abc =2000
+                    echo "${abc}"
                     sh 'printenv'
                     def check = sh 'date +%s'
                     echo "${check}"
