@@ -45,7 +45,7 @@ pipeline {
 //                     echo "${check}"
 //             sh 'printenv'
                     dir_size = sh(script: 'date +%s',returnStdout: true).trim()
-                    echo "${dir_size}" jbdajbdjadb
+                    echo "${dir_size}"
                     sh 'printenv'
                 }
             }
