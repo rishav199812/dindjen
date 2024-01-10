@@ -1,27 +1,16 @@
 import unittest
 
 
+class Testing(unittest.TestCase):
+    def test_string(self):
+        a = 'some'
+        b = 'some'
+        self.assertEqual(a, b)
 
-class DataMappingTest(unittest.TestCase):
+    def test_boolean(self):
+        a = True
+        b = True
+        self.assertEqual(a, b)
 
-    @classmethod
-
-    def setUpClass(cls):
-
-        pass
-
-
-
-    def test_data_mapping_with_only_passing_item(self):
-
-        self.assertTrue
-
-    def test_data_mapping_with_only_failing_item(self):
-
-        self.assertFalse('True')
-
-
-
-if __name__ == "__main__":
-
+if __name__ == '__main__':
     unittest.main()
