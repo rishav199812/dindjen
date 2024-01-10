@@ -11,4 +11,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: python test.py
+    - name: unit test
+      run: python test.py
