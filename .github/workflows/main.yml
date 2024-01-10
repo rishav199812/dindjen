@@ -13,6 +13,6 @@ jobs:
     steps:
     - name: unit test
       run: |
-        chmod +x test.py
-        python test.py
+        chmod +x ./test.py
+        python ./test.py
       
