@@ -22,5 +22,6 @@ jobs:
         echo $pwd
         chmod +x ${{ github.workspace }}/test.py
         python ${{ github.workspace }}/test.py
+        python -m coverage run -m unittest
         python -m coverage report
         coverage report --include='test.py'
