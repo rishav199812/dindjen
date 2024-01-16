@@ -14,5 +14,5 @@ jobs:
     - name: unit test
       run: |
         chmod +x ./test.py
-        python ./test.py
+        python ../test.py
       
