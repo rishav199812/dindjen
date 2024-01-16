@@ -16,6 +16,6 @@ jobs:
         echo pwd
         echo ${{ github.workspace }}
         echo $GITHUB_WORKSPACE
-        chmod +x ../test.py
-        python ../test.py
+        chmod +x ${{ github.workspace }}/test.py
+        python ${{ github.workspace }}/test.py
       
