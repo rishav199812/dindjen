@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: unit test
       run: |
-        pwd
+        echo pwd
         chmod +x ./test.py
         python ../test.py
       
