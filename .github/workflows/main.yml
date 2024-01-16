@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: unit test
       run: |
-        echo pwd
+        echo $pwd
         echo ${{ github.workspace }}
         echo $GITHUB_WORKSPACE
         chmod +x ${{ github.workspace }}/test.py
