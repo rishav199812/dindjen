@@ -24,4 +24,4 @@ jobs:
         python ${{ github.workspace }}/test.py
         python -m coverage run -m unittest
         python -m coverage report
-        coverage report -m --fail-under=80
+        coverage report -m --fail-under=95
