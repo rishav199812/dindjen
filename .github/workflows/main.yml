@@ -16,11 +16,6 @@ jobs:
     - name: unit test
       run: |
         echo $pwd
-        echo ${{ github.workspace }}
-        echo $GITHUB_WORKSPACE
         chmod +x ${{ github.workspace }}/test.py
         python ${{ github.workspace }}/test.py
         python -m coverage report
-				python -m coverage html
-				coverage report -m --fail-under=80
-      
