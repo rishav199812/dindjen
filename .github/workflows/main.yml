@@ -27,6 +27,8 @@ jobs:
       run: |
         echo ${{ github.workspace }}
         ls -al
+        cd dindjen
+        ls -al
         chmod +x ./test.py
         python ${{ github.workspace }}/test.py
         python -m coverage run -m unittest
