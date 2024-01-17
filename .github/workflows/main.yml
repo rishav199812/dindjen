@@ -14,6 +14,8 @@ jobs:
     - name : Checkout code
       run: |
         git clone https://github.com/rishav199812/dindjen.git
+        cd dindjen
+        git checkout main
       # uses : actions/checkout@main
       # with:
       #   repository: rishav199812/dinjen
