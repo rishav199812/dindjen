@@ -13,6 +13,7 @@ jobs:
     steps:
     - name : Checkout code
       run: |
+        echo ${{ github.workspace }}
         git remote set-url origin git@github.com:rishav199812/dindjen.git
         ls -al
         cd dindjen
