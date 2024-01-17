@@ -12,9 +12,9 @@ jobs:
 
     steps:
     - name : Checkout code
-      uses : actions/checkout@v2
-      with:
-        repository: rishav199812/dinjen
+      uses : actions/checkout@main
+      # with:
+      #   repository: rishav199812/dinjen
 
     - name : Install Packages 
       run : pip install coverage
