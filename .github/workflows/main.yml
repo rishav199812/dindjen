@@ -25,8 +25,8 @@ jobs:
       
     - name: unit test
       run: |
-        echo $pwd
-        chmod +x test.py
+        echo ${{pwd}}
+        chmod +x ./test.py
         python ${{ github.workspace }}/test.py
         python -m coverage run -m unittest
         python -m coverage report
