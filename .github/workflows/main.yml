@@ -30,7 +30,7 @@ jobs:
         cd dindjen
         ls -al
         chmod +x ./test.py
-        python ${{ github.workspace }}/test.py
+        python ./test.py
         python -m coverage run -m unittest
         python -m coverage report
         coverage report -m --fail-under=80
