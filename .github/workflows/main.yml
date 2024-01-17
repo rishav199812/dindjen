@@ -12,7 +12,9 @@ jobs:
 
     steps:
     - name : Checkout code
-      uses : actions/checkout@main
+      run: |
+        git clone https://github.com/rishav199812/dindjen.git
+      # uses : actions/checkout@main
       # with:
       #   repository: rishav199812/dinjen
 
