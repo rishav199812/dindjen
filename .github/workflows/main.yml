@@ -12,9 +12,7 @@ jobs:
 
     steps:
     - name : Checkout code
-      run : |
-        cd ${{ github.workspace }}
-        git checkout
+      run : actions/checkout@main
 
     - name : Install Packages 
       run : pip install coverage
