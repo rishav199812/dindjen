@@ -13,7 +13,7 @@ jobs:
     steps:
     - name : Checkout code
       run: |
-        # git clone git@github.com:Informa-IIRIS/leadzone-insights-api.git
+        git clone git@github.com:Informa-IIRIS/leadzone-insights-api.git
         ls -al
         cd dindjen
         git checkout main
