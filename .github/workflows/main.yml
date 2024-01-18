@@ -1,26 +1,19 @@
 name: Run tests
-
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main , staging ]
-
 jobs:  
   test:
     runs-on: ubuntu-latest
-
     steps:
     - name : Checkout code
       run: |
-        echo ${{ github.workspace }}
-        ls -al
+        git clone https://github.com/rishav199812/dindjen.git
         cd dindjen
         git checkout main
-      # uses : actions/checkout@main
-      # with:
-      #   repository: rishav199812/dinjen
-
+        
     - name : Install Packages 
       run : pip install coverage
       
@@ -31,6 +24,7 @@ jobs:
         cd dindjen
         ls -al
         chmod +x ./test.py
+        python ${{ github.workspace }}/test.py
         python ./test.py
         python -m coverage run -m unittest
         python -m coverage report
