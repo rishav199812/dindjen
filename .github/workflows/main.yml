@@ -24,8 +24,6 @@ jobs:
         echo ${{ github.workspace }}
         cd dindjen
         ls -la
-        ls -R coverage
-        echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
         echo "coverage=$(cat dindjen/coverage/lcov-report/index.html | grep -A 1 "class='fl pad1y space-right2'" | awk 'NR==2' | sed 's/^[^>]*>//;s/<.*$//')" >> $GITHUB_COV
         echo ${GITHUB_COV}
         ls -al
