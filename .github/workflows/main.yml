@@ -12,29 +12,46 @@ jobs:
       run: |
         git clone https://github.com/rishav199812/dindjen.git
         cd dindjen
+        git checkout test_branch_check
         
     - name : Install Packages 
       run : pip install coverage
       
     - name: unit test
       run: |
-        echo ${GITHUB_HEAD_REF}
-        echo ${GITHUB_REF##*/}
-        echo "${GITHUB_REF#refs/heads/}"
-        echo ${{ github.workspace }}
         cd dindjen
         ls -la
-        ls -R coverage
-        echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
-        echo "coverage=$(cat dindjen/coverage/lcov-report/index.html | grep -A 1 "class='fl pad1y space-right2'" | awk 'NR==2' | sed 's/^[^>]*>//;s/<.*$//')" >> $GITHUB_COV
-        echo ${GITHUB_COV}
-        ls -al
-        cd dindjen
-        ls -al
-        chmod +x ./test.py
-        python ${{ github.workspace }}/test.py
-        python ./test.py
-        python -m coverage run -m unittest
-        python -m coverage report
-        coverage report -m --fail-under=80
+        sh "./cov/test.sh"
+        chmod 700 ./cov/test.sh
+        script_output=$(./cov/test.sh)
+        echo "Script Output: $script_output"
+        if [ "$(awk -v cov=$script_output 'BEGIN {print (cov < 70) ? 1 : 0}')" -eq 1 ]; then
+            echo "Error: Coverage is less than 70%. Workflow failed."
+            exit 1
+        else
+            echo "Coverage is more than 70%. Workflow passed."
+        fi
+        if [ "$(awk -v cov=$script_output 'BEGIN {print (cov < 75) ? 1 : 0}')" -eq 1 ]; then
+            echo "Error: Coverage is less than 75%. Workflow failed."
+            exit 1
+        else
+            echo "Coverage is more than 75%. Workflow passed."
+        fi
+        if [ "$(awk -v cov=$script_output 'BEGIN {print (cov < 77.95) ? 1 : 0}')" -eq 1 ]; then
+            echo "Error: Coverage is less than 77.95%. Workflow failed."
+            exit 1
+        else
+            echo "Coverage is more than 77.95%. Workflow passed."
+        fi
+        if [ "$(awk -v cov=$script_output 'BEGIN {print (cov < 77.97) ? 1 : 0}')" -eq 1 ]; then
+            echo "Error: Coverage is less than 77.97%. Workflow failed."
+            exit 1
+        else
+            echo "Coverage is more than 77.97%. Workflow passed."
+        fi
+ 
+
+          
+
+
         
