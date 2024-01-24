@@ -21,7 +21,7 @@ jobs:
       run: |
         cd dindjen
         ls -la
-        "sh ./cov/test.sh"
+        sh "./cov/test.sh"
         echo "sh ./cov/test.sh" >> "$COVERAGE_FILE"
         echo "coverage report : $COVERAGE_FILE"
           
