@@ -22,8 +22,8 @@ jobs:
         cd dindjen
         ls -la
         COVERAGE_FILE="${{ github.workspace }}/coverage/lcov-report/index.html"
-        sh "./cov/test.sh"
-        echo "$COVERAGE_FILE"
+        echo "sh ./cov/test.sh" >> "$COVERAGE_FILE"
+        echo "coverage report : $COVERAGE_FILE"
         echo $(cat $COVERAGE_FILE | grep -A 1 'class='fl pad1y space-right2'' | awk 'NR==2' | sed 's/^[^>]*>//;s/<.*$//')
         if [ -e "$COVERAGE_FILE" ]; then
           echo "$(cat $COVERAGE_FILE | \
