@@ -30,9 +30,6 @@ jobs:
         if [ -e "$COVERAGE_FILE" ]; then
           echo "$(cat $COVERAGE_FILE | grep -A 1 \"class='fl pad1y space-right2'\" | awk 'NR==2' | sed 's/^[^>]*>//;s/<.*$//')" >> "$GITHUB_COV"
           echo "${GITHUB_COV}"
-        else
-          echo "Error: coverage file not found."
-        fi
 
 
         
