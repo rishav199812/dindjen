@@ -19,6 +19,7 @@ jobs:
       
     - name: unit test
       run: |
+        echo ${GITHUB_REF##*/}
         echo $pwd
         chmod +x ${{ github.workspace }}/test.py
         python ${{ github.workspace }}/test.py
