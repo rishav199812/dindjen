@@ -18,6 +18,7 @@ jobs:
       
     - name: unit test
       run: |
+        echo ${github.head_ref}
         echo ${GITHUB_REF##*/}
         echo "${GITHUB_REF#refs/heads/}"
         echo ${{ github.workspace }}
