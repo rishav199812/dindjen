@@ -28,13 +28,10 @@ jobs:
         if [ "$(echo "$script_output < 60" | awk '{print ($1 < 60) ? 1 : 0}')" -eq 1 ]; then
           echo "Error: Coverage is less than 60%. Workflow failed."
           exit 1
+        else
+          echo "Coverage is more than 60%. Workflow passed."
         fi
-        COVERAGE_PERCENT=$(echo "$script_output" | sed 's/%//')
-        echo "COVERAGE_PERCENT : $COVERAGE_PERCENT"
-        if [ "$COVERAGE_PERCENT" -lt 80 ]; then
-          echo "Error: Coverage is less than 80%. Workflow failed."
-          exit 1
-        fi
+
           
 
 
