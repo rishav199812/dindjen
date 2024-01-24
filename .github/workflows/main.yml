@@ -19,6 +19,7 @@ jobs:
     - name: unit test
       run: |
         echo ${GITHUB_REF##*/}
+        echo "${GITHUB_REF#refs/heads/}"
         echo ${{ github.workspace }}
         ls -al
         cd dindjen
