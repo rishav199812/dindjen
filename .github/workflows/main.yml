@@ -12,6 +12,7 @@ jobs:
       run: |
         git clone https://github.com/rishav199812/dindjen.git
         cd dindjen
+        git checkout test_branch_check
         
     - name : Install Packages 
       run : pip install coverage
