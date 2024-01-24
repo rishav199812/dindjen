@@ -27,16 +27,28 @@ jobs:
         echo "Script Output: $script_output"
         if [ "$(awk -v cov=$script_output 'BEGIN {print (cov < 70) ? 1 : 0}')" -eq 1 ]; then
             echo "Error: Coverage is less than 70%. Workflow failed."
+            exit 1
         else
             echo "Coverage is more than 70%. Workflow passed."
-            exit 1
         fi
-        # if [ "$(echo "$script_output < 60" | awk '{print ($1 < 60) ? 1 : 0}')" -eq 1 ]; then
-        #   echo "Error: Coverage is less than 78%. Workflow failed."
-        #   exit 1
-        # else
-        #   echo "Coverage is more than 60%. Workflow passed."
-        # fi
+        if [ "$(awk -v cov=$script_output 'BEGIN {print (cov < 75) ? 1 : 0}')" -eq 1 ]; then
+            echo "Error: Coverage is less than 75%. Workflow failed."
+            exit 1
+        else
+            echo "Coverage is more than 75%. Workflow passed."
+        fi
+        if [ "$(awk -v cov=$script_output 'BEGIN {print (cov < 77.95) ? 1 : 0}')" -eq 1 ]; then
+            echo "Error: Coverage is less than 77.95%. Workflow failed."
+            exit 1
+        else
+            echo "Coverage is more than 77.95%. Workflow passed."
+        fi
+        if [ "$(awk -v cov=$script_output 'BEGIN {print (cov < 77.97) ? 1 : 0}')" -eq 1 ]; then
+            echo "Error: Coverage is less than 77.97%. Workflow failed."
+            exit 1
+        else
+            echo "Coverage is more than 77.97%. Workflow passed."
+        fi
  
 
           
