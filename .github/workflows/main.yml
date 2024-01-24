@@ -1,28 +1,31 @@
 name: Run tests
-
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main , staging ]
-
 jobs:  
   test:
     runs-on: ubuntu-latest
-
     steps:
     - name : Checkout code
-      uses : actions/checkout@v2
-
+      run: |
+        git clone https://github.com/rishav199812/dindjen.git
+        cd dindjen
+        
     - name : Install Packages 
       run : pip install coverage
       
     - name: unit test
       run: |
         echo ${GITHUB_REF##*/}
-        echo $pwd
-        chmod +x ${{ github.workspace }}/test.py
+        echo ${{ github.workspace }}
+        ls -al
+        cd dindjen
+        ls -al
+        chmod +x ./test.py
         python ${{ github.workspace }}/test.py
+        python ./test.py
         python -m coverage run -m unittest
         python -m coverage report
         coverage report -m --fail-under=80
