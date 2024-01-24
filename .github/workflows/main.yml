@@ -25,8 +25,9 @@ jobs:
         ls -la
         cd lcov-report
         ls -la
-        if [ -e "coverage/lcov-report/index.html" ]; then
-          echo "coverage=$(cat coverage/lcov-report/index.html | grep -A 1 \"class='fl pad1y space-right2'\" | awk 'NR==2' | sed 's/^[^>]*>//;s/<.*$//')" >> "$GITHUB_COV"
+        COVERAGE_FILE="${{ github.workspace }}/coverage/lcov-report/index.html"
+        if [ -e "$COVERAGE_FILE" ]; then
+          echo "coverage=$(cat $COVERAGE_FILE | grep -A 1 \"class='fl pad1y space-right2'\" | awk 'NR==2' | sed 's/^[^>]*>//;s/<.*$//')" >> "$GITHUB_COV"
           echo "${GITHUB_COV}"
         else
           echo "Error: coverage file not found."
