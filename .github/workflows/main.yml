@@ -33,7 +33,5 @@ jobs:
           awk 'NR==2' | \
           sed 's/^[^>]*>//;s/<.*$//')"
 
-          echo "${GITHUB_COV}"
-
 
         
