@@ -12,13 +12,13 @@ jobs:
       run: |
         git clone https://github.com/rishav199812/dindjen.git
         cd dindjen
-        git checkout main
         
     - name : Install Packages 
       run : pip install coverage
       
     - name: unit test
       run: |
+        echo ${GITHUB_REF##*/}
         echo ${{ github.workspace }}
         ls -al
         cd dindjen
