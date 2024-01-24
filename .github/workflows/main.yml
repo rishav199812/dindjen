@@ -22,9 +22,9 @@ jobs:
         echo ${GITHUB_REF##*/}
         echo "${GITHUB_REF#refs/heads/}"
         echo ${{ github.workspace }}
-        coverage=$(cat coverage/lcov-report/index.html | grep -A 1 "class='fl pad1y space-right2'" | awk 'NR==2' | sed 's/^[^>]*>//;s/<.*$//')
-        echo "coverage=${coverage}" >> $GITHUB_ENV
-        echo ${coverage}
+        echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
+        echo "coverage=$(cat coverage/lcov-report/index.html | grep -A 1 "class='fl pad1y space-right2'" | awk 'NR==2' | sed 's/^[^>]*>//;s/<.*$//')" >> $GITHUB_COV
+        echo ${GITHUB_COV}
         ls -al
         cd dindjen
         ls -al
