@@ -22,6 +22,7 @@ jobs:
         cd dindjen
         ls -la
         sh "./cov/test.sh"
+        chmod 700 ./cov/test.sh
         script_output=$(./cov/test.sh)
         echo "Script Output: $script_output"
         echo "sh ./cov/test.sh" >> "$COVERAGE_FILE"
