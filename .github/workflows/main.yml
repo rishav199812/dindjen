@@ -25,8 +25,8 @@ jobs:
         chmod 700 ./cov/test.sh
         script_output=$(./cov/test.sh)
         echo "Script Output: $script_output"
-        if [ "$(echo "$script_output < 60" | awk '{print ($1 < 60) ? 1 : 0}')" -eq 1 ]; then
-          echo "Error: Coverage is less than 60%. Workflow failed."
+        if [ "$(echo "$script_output < 78" | awk '{print ($1 < 78) ? 1 : 0}')" -eq 1 ]; then
+          echo "Error: Coverage is less than 78%. Workflow failed."
           exit 1
         else
           echo "Coverage is more than 60%. Workflow passed."
