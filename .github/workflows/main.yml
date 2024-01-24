@@ -28,7 +28,11 @@ jobs:
         COVERAGE_FILE="${{ github.workspace }}/coverage/lcov-report/index.html"
         echo "$COVERAGE_FILE"
         if [ -e "$COVERAGE_FILE" ]; then
-          echo "$(cat $COVERAGE_FILE | grep -A 1 \"class='fl pad1y space-right2'\" | awk 'NR==2' | sed 's/^[^>]*>//;s/<.*$//')"
+          echo "$(cat $COVERAGE_FILE | \
+          grep -A 1 'class='fl pad1y space-right2'' | \
+          awk 'NR==2' | \
+          sed 's/^[^>]*>//;s/<.*$//')"
+
           echo "${GITHUB_COV}"
 
 
