@@ -1,31 +1,53 @@
-name: Run tests
+# name: Run tests
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main , staging ]
+# jobs:  
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name : Checkout code
+#       run: |
+#         git clone https://github.com/rishav199812/dindjen.git
+#         cd dindjen
+        
+#     - name : Install Packages 
+#       run : pip install coverage
+      
+#     - name: unit test
+#       run: |
+#         echo ${GITHUB_REF##*/}
+#         echo ${{ github.workspace }}
+#         ls -al
+#         cd dindjen
+#         ls -al
+#         chmod +x ./test.py
+#         python ${{ github.workspace }}/test.py
+#         python ./test.py
+#         python -m coverage run -m unittest
+#         python -m coverage report
+#         coverage report -m --fail-under=80
+
+
+name: Copy File to Windows Server
+
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main , staging ]
-jobs:  
-  test:
-    runs-on: ubuntu-latest
+    branches:
+      - main
+
+jobs:
+  copy-file:
+    runs-on: self-hosted
     steps:
-    - name : Checkout code
-      run: |
-        git clone https://github.com/rishav199812/dindjen.git
-        cd dindjen
-        
-    - name : Install Packages 
-      run : pip install coverage
-      
-    - name: unit test
-      run: |
-        echo ${GITHUB_REF##*/}
-        echo ${{ github.workspace }}
-        ls -al
-        cd dindjen
-        ls -al
-        chmod +x ./test.py
-        python ${{ github.workspace }}/test.py
-        python ./test.py
-        python -m coverage run -m unittest
-        python -m coverage report
-        coverage report -m --fail-under=80
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy file to Windows Server
+        run: |
+          # Copy file(s) using PowerShell
+          ls -la
+          Copy-Item -Path "test.py" -Destination "C:/Users" -Force
+
