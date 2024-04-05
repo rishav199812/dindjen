@@ -49,6 +49,5 @@ jobs:
         run: |
           # Copy file(s) using PowerShell
           dir
-          Remove-Item -Path C:/Users/requirements.txt" -Force
           Copy-Item -Path "requirements.txt" -Destination "C:/Users" -Force
 
