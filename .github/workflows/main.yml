@@ -48,6 +48,6 @@ jobs:
       - name: Copy file to Windows Server
         run: |
           # Copy file(s) using PowerShell
-          ls -la
+          dir
           Copy-Item -Path "test.py" -Destination "C:/Users" -Force
 
